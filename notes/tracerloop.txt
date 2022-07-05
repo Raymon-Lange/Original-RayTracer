@@ -1,0 +1,26 @@
+for each pixel of the screen
+{
+  Final color = 0;
+  Ray = { starting point, direction };
+  Repeat 
+  {
+    for each object in the scene
+    {
+      determine closest ray object/intersection;
+    }  
+    if intersection exists 
+    {
+      for each light in the scene
+      {
+        if the light is not in shadow of another object
+        {
+          add this light contribution to computed color;
+        }      
+      }
+    }
+    Final color = Final color + computed color * previous reflection factor;
+    reflection factor = reflection factor * surface reflection property;
+    increment depth;
+  } until reflection factor is 0 or maximum depth is reached;
+}  
+
